@@ -1,14 +1,18 @@
 
+import Container from 'postcss/lib/container'
 import './App.css'
+import Navbar from './assets/Components/Navbar'
 
-function App() {
 
-  return (
-    <>
-     <h1 className='text-xl font-bold text-blue-500'>Tailwind Css with react vite.</h1>
-    
-    </>
-  )
-}
+const container = styled.div`
+height:100vh;
+`
+
+
+
+const App =() =>{
+  return
+    <Container><Navbar/></Container>;   
+};
 
 export default App
