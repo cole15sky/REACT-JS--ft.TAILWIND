@@ -1,10 +1,8 @@
+import styled from 'styled-components';
+// import './App.css'
+// import Navbar from './Components/Navbar';
 
-import Container from 'postcss/lib/container'
-import './App.css'
-import Navbar from './assets/Components/Navbar'
-
-
-const container = styled.div`
+const Container = styled.div`
 height:100vh;
 `
 
@@ -12,7 +10,10 @@ height:100vh;
 
 const App =() =>{
   return
-    <Container><Navbar/></Container>;   
+  <div>
+  <h1>hiiii </h1>
+    <Container>hello world</Container>;   
+    </div>
 };
 
 export default App
