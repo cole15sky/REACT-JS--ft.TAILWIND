@@ -1,19 +1,33 @@
-import React from 'react'
-
-const Container =styled.div`
-height:50px;
-`
-
+import { Link } from "react-scroll";
 
 
 const Navbar = () => {
+  const content = <>
+  <div className="">
+    <ul>
+      <link to="Home">
+      <li>Home</li>
+      </link>
+      <link>
+      <li to="About">About</li>
+      </link>
+      <link>
+      <li to="Blogs">Blogs</li>
+      </link>
+      <link>
+      <link to="Gallery">Gallery</link>
+      </link>
+    </ul>
+    
+    </div></>
   return (
-    <Container>
-        navbar 
-    </Container>
-  )
+    <nav>
+
+    </nav>
+    
+  );
     
   
-}
+};
 
 export default Navbar

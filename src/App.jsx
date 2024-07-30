@@ -1,19 +1,11 @@
-import styled from 'styled-components';
-// import './App.css'
-// import Navbar from './Components/Navbar';
+import React from "react";
 
-const Container = styled.div`
-height:100vh;
-`
-
-
-
-const App =() =>{
-  return
-  <div>
-  <h1>hiiii </h1>
-    <Container>hello world</Container>;   
+const App = ()=>{
+  return (
+    <div className="bg-slate-900">
+   <Nav/>
     </div>
+  );
 };
 
-export default App
+export default App;
