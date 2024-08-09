@@ -1,12 +1,14 @@
+import { useState } from "react"
 
 
 function App() {
+  const [color,setColor]= useState("olive")
 
   return (
-    <>
-    <h1 className="text-3xl font-bold underline"> THIS IS TAILWIND</h1>
-     
-    </>
+   <div className="w-full h-screen duration-200"
+   style={{backgroundColor:color}}>
+
+   </div>
   )
 }
 
