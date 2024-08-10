@@ -1,91 +1,76 @@
-import { useCallback, useState } from "react"
-
+import { useCallback, useState, useEffect } from "react";
 
 function App() {
-  const [length, setLength] = useState(8)
+  const [length, setLength] = useState(8);
   const [allowNumber, setAllowNumber] = useState(false);
   const [allowChar, setAllowChar] = useState(false);
-  const [password, setPassword] = useState("")
+  const [password, setPassword] = useState("");
 
   const passwordGenerator = useCallback(() => {
-    let pass = ""
-    let string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghojklmnopqrstuvwxyz"
-    if (allowNumber) str += "0123456789"
-    if (allowChar) str += "!@#$%^&*()_+?:"
+    let pass = "";
+    let string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghojklmnopqrstuvwxyz";
+    if (allowNumber) string += "0123456789";
+    if (allowChar) string += "!@#$%^&*()_+?:";
 
-    for (i = 1; i <= array.length; i++) {
-      let char = Math.floor(Math.random() * string.length + 1)
-      pass = str.charAt(char)
+    for (let i = 0; i < length; i++) {
+      let char = Math.floor(Math.random() * string.length);
+      pass += string.charAt(char);
     }
-    setPassword(pass)
+    setPassword(pass);
+  }, [length, allowNumber, allowChar]);
 
+  useEffect(() => {
+    passwordGenerator();
+  }, [length, allowNumber, allowChar, passwordGenerator]);
 
-  }, [length, allowNumber, allowChar])
   return (
-    <div className="w-full max-w-md mx-auto shadow-md
-    rounded-lg px-4 py-3 my-8 bg-gray-800 ">
+    <div className="w-full max-w-md mx-auto shadow-md rounded-lg px-4 py-3 my-8 bg-gray-800">
       <h1 className="text-white text-center my-3">Password Generator</h1>
-      <div className='className="flex shadow rounded-lg overflow-hidden mb-4"'>
-
-        <input type="text"
+      <div className="flex shadow rounded-lg overflow-hidden mb-4">
+        <input
+          type="text"
           value={password}
-          className="outline-none w-full py-1 px-3 "
+          className="outline-none w-full py-1 px-3"
           placeholder="Password"
           readOnly
         />
-        <button
-          className="outline-none bg-blue-800 text-white
-      px-3 py-0.5 shrink-0" > Copy</button>
+        <button className="outline-none bg-blue-800 text-white px-3 py-0.5 shrink-0">
+          Copy
+        </button>
       </div>
       <div className="flex text-sm gap-x-2">
-        <div className="flex-items-center gap-x-1">
+        <div className="flex items-center gap-x-1">
           <input
             type="range"
             min={6}
             max={100}
             value={length}
             className="cursor-pointer"
-            onChange={(e) => {
-              setLength(e.target.value)
-
-            }} />
-          <label className="text-white">Length:{length}</label>
-
+            onChange={(e) => setLength(Number(e.target.value))}
+          />
+          <label className="text-white">Length: {length}</label>
         </div>
         <div className="flex items-center gap-x-1">
           <input
             type="checkbox"
             defaultChecked={allowNumber}
             id="numberInput"
-            onChange={() => {
-              setAllowNumber((prev) => !prev);
-
-            }}
+            onChange={() => setAllowNumber((prev) => !prev)}
           />
           <label className="text-white" htmlFor="numberInput">Numbers</label>
-
-
         </div>
-
-
         <div className="flex items-center gap-x-1">
           <input
             type="checkbox"
             defaultChecked={allowChar}
             id="characterInput"
-            onChange={() => {
-              setAllowChar((prev) => !prev);
-
-            }}
+            onChange={() => setAllowChar((prev) => !prev)}
           />
-          <label className="text-white" htmlFor="numberInput">Characters</label>
-
-
+          <label className="text-white" htmlFor="characterInput">Characters</label>
         </div>
       </div>
-
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
