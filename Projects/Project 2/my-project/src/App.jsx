@@ -19,11 +19,7 @@ function App() {
   }
   setPassword(pass)
 
-
-
-  
- 
-  
+   
   },[length,allowNumber,allowChar])
   return (
     <div className="w-full max-w-md mx-auto shadow-md
@@ -34,13 +30,12 @@ function App() {
       <input type="text"
       value={password}
       className="outline-none w-full py-1 px-3 "
-      placeholder="password"
+      placeholder="Password"
       readOnly
-      
       />
       <button
-      className="outline-none bg-blue-700 text-white
-      px-3 py-0.5 shrink-0"> Copy</button>
+      className="outline-none bg-blue-800 text-white
+      px-3 py-0.5 shrink-0" > Copy</button>
       </div> 
       <div className="flex text-sm gap-x-2">
         <div className="flex-items-center gap-x-1">
@@ -49,12 +44,26 @@ function App() {
         min={6}
         max={100}
         value={length}
-        className="cursor-pointer"
-        onChange={(e) =>{setLength(e.length.value)
+        className="cursor-pointer" 
+        onChange={(e) =>{setLength(e.target.value)
 
         }}/>
-        <label>Length:{length}</label>
+        <label className="text-white">Length:{length}</label>
         
+              </div>
+              <div className="flex items-center gap-x-1">
+                <input 
+                type="checkbox"
+                defaultChecked={allowNumber}
+                id="numberInput"
+                onChange={() =>{
+                  setAllowNumber((prev)=> !prev);
+
+                }}
+                />
+                <label className="text-white" htmlFor="numberInput">Numbers</label>
+                  
+                
               </div>
       </div>
 
