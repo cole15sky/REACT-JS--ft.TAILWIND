@@ -1,5 +1,4 @@
 
-## Here’s a description you can use for your GitHub profile to highlight your skills with React, Vite, and Tailwind CSS:
 
 ### ⚛️ React, Vite, and Tailwind CSS Enthusiast
 I specialize in building modern, performant, and responsive web applications using React.js, Vite, and Tailwind CSS. My projects focus on creating clean, efficient, and scalable front-end solutions.
