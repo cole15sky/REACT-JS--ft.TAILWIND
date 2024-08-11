@@ -1,11 +1,14 @@
-
-
+import bgImage from '../../../Img/bg-img1.jpg';
 function App() {
 
   return (
-    <>
-     <h1 className="text-3xl font-bold "> Project 3</h1>
-    </>
+    <div className='w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat'
+    style={{background:`url(${bgImage})`
+    , width: '100vw',
+        height: '100vh',}}>
+
+    </div>
+
   )
 }
 
